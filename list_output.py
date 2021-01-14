@@ -18,7 +18,9 @@ while i >= 0:
     i -= 1
 print(numbers)
 
-numbers.insert(0, 20)           #(a, b) a는 인덱스 순서 / b는 insert할 값
+numbers.insert(0, 20)           #(a, b) a는 인덱스 순서 / b는 insert할
 print(numbers)
 
 print(sorted(numbers))
+
+print("Hello")
