@@ -1,16 +1,23 @@
-from calculator import add, multiply
+# area 모듈 갖고오기
+import area
 
-print(add(2, 5))
+print(area.square(3))
 
-print(multiply(2, 5))
+# area모듈 안에 함수 갖고오기
+from area import square
 
-# 모듈 불러오기
-import '모듈이름'
+#area모듈 이름 바꾸기
+import area as ar
 
-# 모듈이름 정의하기
-import '모듈이름' as '모듈'
+#area모듈 안에 있는 함수 이름 바꾸기
+from area import square as sq
 
-# 모듈에 있는 함수 불러오기
-from '모듈이름' import '함수이름'
+#area 안에 있는 정의된 이름들 불러오기
+print(dir(area))
 
-#
+#현재 파일안에 있는 정의된 이름들 불러오기
+#print(dir)
+
+#name space = 파일에서 정의된 모든 이름
+#dir함수는 ()안에 있는 정의된 모든 이름들을 리턴해주는 함수
+
