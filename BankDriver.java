@@ -24,5 +24,10 @@ public class BankDriver {
 
         p2.account = a2;
         a2.owner = p2;
+
+        a2.deposit(30000);
+        a2.withdraw(170000);
+        a2.deposit(620000);
+        a2.withdraw(890000);
     }
 }
