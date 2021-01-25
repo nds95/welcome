@@ -1,3 +1,5 @@
+import javax.swing.*;
+
 public class BankAccount {
     private int balance;
     private Person owner;
@@ -37,6 +39,11 @@ public class BankAccount {
         }
     }
 
+    public boolean deposit(double amount, double exchangeRate) {
+        System.out.println("");
+        return deposit((int) (amount * exchangeRate));
+    }
+
     // 파라미터 : 출금 액수(int)
     // 리턴값 : 성공 여부(boolean)
     boolean withdraw(int amount) {
@@ -53,11 +60,39 @@ public class BankAccount {
         }
     }
 
-    // 파라미터_1 : 받는 사람(Person)
-    // 파라미터_2 : 이체할 금액(int)
-    // 리턴값 : 성공 여부(boolean)
+    public boolean transfer(Person to, int amount) {
+        if (amount >= 0 || amount > balance) {
+            balance -= amount;
+            to.getAccount().setBalance(to.getAccount().getBalance() + amount);
+            System.out.println("true - from: [" + owner.getName() + "], to: [" + to.getName() + "], amount: ["
+                    + amount + "], balance: [" + to.getAccount().getBalance() + "]");
+            return true;
+        } else {
+            System.out.println("false - from: [" + owner.getName() + "], to: [" + to.getName() + "], amount: ["
+                    + amount + "], balance: [" + to.getAccount().getBalance() + "]");
+            return false;
+        }
+    }
+
+    public boolean transfer(BankAccount to, int amount) {
+        if (amount >= 0 || amount > balance) {
+            balance -= amount;
+            to.balance += amount;
+            System.out.println("true - from: [" + owner.getName() + "], to: [" + to.getOwner().getName() + "], amount: ["
+                    + amount + "], balance: [" + balance + "]");
+            return true;
+        } else {
+            System.out.println("false - from: [" + owner.getName() + "], to: [" + to.getOwner().getName() + "], amount: ["
+                    + amount + "], balance: [" + balance + "]");
+            return false;
+        }
+
+        // 파라미터_1 : 받는 사람(Person)
+        // 파라미터_2 : 이체할 금액(int)
+        // 리턴값 : 성공 여부(boolean)
 
 //    boolean transfer(Person to, int amount) {
 //
 //    }
+    }
 }
